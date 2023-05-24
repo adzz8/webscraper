@@ -55,3 +55,20 @@ fieldnames = ['Author', 'Title', 'ISBN', 'URL']
 data_list.append({'Author': item, 'Title': td.text.strip(), 'ISBN': td.find('span', class_='isbn').text.strip(), 'URL': a['href']})
 ````
 # have fun scraping in accordance with privacy policies etc.
+
+## 🛠️ To-Do List
+
+stuff to add after exams
+
+- [ ] **anti-fart** - seperate files for log handling, preventing crashes when program fails.
+- [ ] **slow down** - add delays between request so don't get flagged
+- [ ] **speed up** - utilize processor by multithreading
+- [ ] **big data** - pagination handling, some lists are just too long.
+- [ ] **interface?** - Command line interface for easy navigation and use.
+- [ ] **cleanliness is half of faith** - data cleaning
+- [ ] **spider** - web crawling, super effective scraper
+- [ ] **spy games** - User agent rotation, switch up disguises to avoid getting caught.
+- [ ] **container** - Containerizing the scraper with Docker, everyone loves an easy setup!
+- [ ] **testing** - Unit tests to make sure everything's working as expected.
+- [ ] **ELI5** - Clear instructions and documentation so people can use 
+
