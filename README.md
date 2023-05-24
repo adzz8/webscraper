@@ -1,4 +1,4 @@
-# Generic Scraper
+# Generic Table Scraper
 
 This is a simple and generic web scraper script which uses Selenium and BeautifulSoup to extract data from tables on web pages. You can use this script to scrape any website that has data organized in a table within a container.
 
@@ -53,5 +53,5 @@ And you would set up the `fieldnames` and `data_list` like this:
 fieldnames = ['Author', 'Title', 'ISBN', 'URL']
 ...
 data_list.append({'Author': item, 'Title': td.text.strip(), 'ISBN': td.find('span', class_='isbn').text.strip(), 'URL': a['href']})
-
+````
 # have fun scraping in accordance with privacy policies etc.
