@@ -47,6 +47,7 @@ You would set up the script like this:
 - `table_container_class`: `'book-list'`
 - `min_sleep_time`: `1`
 - `max_sleep_time` : `5`
+- `max_workers`: `5`
 
 And you would set up the `fieldnames` and `data_list` like this:
 
@@ -63,7 +64,7 @@ stuff to add after exams
 
 - [x] **anti-fart** - seperate files for log handling, preventing crashes when program fails.
 - [x] **slow down** - add delays between request so don't get flagged
-- [ ] **speed up** - utilize processor by multithreading
+- [x] **speed up** - utilize processor by multithreading
 - [ ] **big data** - pagination handling, some lists are just too long.
 - [ ] **interface?** - Command line interface for easy navigation and use.
 - [ ] **cleanliness is half of faith** - data cleaning
