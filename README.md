@@ -60,7 +60,7 @@ data_list.append({'Author': item, 'Title': td.text.strip(), 'ISBN': td.find('spa
 
 stuff to add after exams
 
-- [ ] **anti-fart** - seperate files for log handling, preventing crashes when program fails.
+- [x] **anti-fart** - seperate files for log handling, preventing crashes when program fails.
 - [ ] **slow down** - add delays between request so don't get flagged
 - [ ] **speed up** - utilize processor by multithreading
 - [ ] **big data** - pagination handling, some lists are just too long.
