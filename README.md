@@ -31,7 +31,7 @@ You should also update the `fieldnames` in the `writer` setup to reflect the hea
 ## Usage
 
 ```python main.py --chromedriver_path "/usr/local/bin/chromedriver" --input_file "items.txt" --output_file "output.csv" --url_template "http://example.com/{}" --table_container_class "table-class" --min_sleep_time 1 --max_sleep_time 5 --max_workers 5
-
+```
 
 
 ## Error Handling
