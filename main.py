@@ -6,18 +6,34 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import csv
+import argparse
+
+# setup argument parser
+parser = argparse.ArgumentParser(description='Web scraper')
+parser.add_argument('--chromedriver_path', type=str, required=True, help='Path to ChromeDriver')
+parser.add_argument('--input_file', type=str, required=True, help='Input file path')
+parser.add_argument('--output_file', type=str, required=True, help='Output file path')
+parser.add_argument('--url_template', type=str, required=True, help='URL template')
+parser.add_argument('--table_container_class', type=str, required=True, help='HTML class for the table container')
+parser.add_argument('--min_sleep_time', type=float, required=True, help='Minimum sleep time between requests')
+parser.add_argument('--max_sleep_time', type=float, required=True, help='Maximum sleep time between requests')
+parser.add_argument('--max_workers', type=int, required=True, help='Maximum number of threads')
+args = parser.parse_args()
 
 # configuration settings
 config = {
-    "chromedriver_path": "",  
-    "input_file": "", 
-    "output_file": "",  
-    "url_template": "",  
-    "table_container_class": "",
-    "min_sleep_time": '',  
-    "max_sleep_time": '',  
-    "max_workers": '',
+    "chromedriver_path": args.chromedriver_path,  
+    "input_file": args.input_file, 
+    "output_file": args.output_file,  
+    "url_template": args.url_template,  
+    "table_container_class": args.table_container_class,
+    "min_sleep_time": args.min_sleep_time,  
+    "max_sleep_time": args.max_sleep_time,  
+    "max_workers": args.max_workers,
 }
+
+# rest of your code
+
 
 # setup logging
 logging.basicConfig(filename='error.log', level=logging.ERROR)

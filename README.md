@@ -15,20 +15,24 @@ Ensure ChromeDriver is installed in a directory that's included in your PATH sys
 
 ## Configuration
 
-You can set up the script by editing the following items in the `config` dictionary at the top of the script:
+You can set up the script by providing the following arguments when running the script:
 
 - `chromedriver_path`: This should be the path to your ChromeDriver executable.
 - `input_file`: Path to a text file containing your list of items. The file should contain a list of items formatted as a Python list.
 - `output_file`: The path and name of the CSV file where the scraped data will be saved.
 - `url_template`: This should be the base URL for your web pages, with `{}` in the place where your item name will be inserted.
 - `table_container_class`: The class name of the div containing the table(s) you want to scrape.
-- `sleep_time`: The number of seconds to wait for each page to load.
+- `min_sleep_time`: The number of seconds to wait for each page to load.
+- `max_sleep_time` : The maximum number of seconds to wait for each page to load.
+- `max_workers`: The maximum number of threads to use for concurrent scraping.
 
 You should also update the `fieldnames` in the `writer` setup to reflect the headers for your CSV file. This should match with the keys in your `data_list`.
 
 ## Usage
 
-Just run the script in Python. The script will read your items, scrape each page, extract the data, and write it to your output file. 
+```python main.py --chromedriver_path "/usr/local/bin/chromedriver" --input_file "items.txt" --output_file "output.csv" --url_template "http://example.com/{}" --table_container_class "table-class" --min_sleep_time 1 --max_sleep_time 5 --max_workers 5
+
+
 
 ## Error Handling
 
@@ -55,8 +59,7 @@ And you would set up the `fieldnames` and `data_list` like this:
 fieldnames = ['Author', 'Title', 'ISBN', 'URL']
 ...
 data_list.append({'Author': item, 'Title': td.text.strip(), 'ISBN': td.find('span', class_='isbn').text.strip(), 'URL': a['href']})
-````
-# have fun scraping in accordance with privacy policies etc.
+
 
 ## 🛠️ To-Do List
 
@@ -65,8 +68,10 @@ stuff to add after exams
 - [x] **anti-fart** - seperate files for log handling, preventing crashes when program fails.
 - [x] **slow down** - add delays between request so don't get flagged
 - [x] **speed up** - utilize processor by multithreading
-- [ ] **big data** - pagination handling, some lists are just too long.
-- [ ] **interface?** - Command line interface for easy navigation and use.
+- [x] **interface?** - Command line interface for easy navigation and use.
+
+# at this point the project would be pushing actual software, so focusing on other projects and might return later
+
 - [ ] **cleanliness is half of faith** - data cleaning
 - [ ] **spider** - web crawling, super effective scraper
 - [ ] **spy games** - User agent rotation, switch up disguises to avoid getting caught.
