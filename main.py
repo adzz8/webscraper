@@ -1,5 +1,6 @@
 import time
 import logging
+import random
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
@@ -12,7 +13,8 @@ config = {
     "output_file": "",  
     "url_template": "",  
     "table_container_class": "",
-    "sleep_time": "",
+    "min_sleep_time": '',  
+    "max_sleep_time": '',  
 }
 
 # setup logging
@@ -45,7 +47,7 @@ try:
             try:
                 print(f"Scraping: {item}") 
                 driver.get(url)
-                time.sleep(int(config["sleep_time"]))
+                time.sleep(random.uniform(config["min_sleep_time"], config["max_sleep_time"]))
 
                 html = driver.page_source
                 soup = BeautifulSoup(html, 'html.parser')
@@ -75,7 +77,6 @@ try:
             finally:
                 driver.quit()
 
-            time.sleep(2)
+            time.sleep(random.uniform(config["min_sleep_time"], config["max_sleep_time"]))
 except Exception as e:
     logging.error(f'Error while setting up CSV file or during scraping: {e}')
-
